@@ -90,6 +90,9 @@
       #+begin_src emacs-lisp
         (org-ml-parse-section-at -1)
 
+        ;;; OR
+        (org-ml-parse-this-toplevel-section)
+
          (section (:begin 1 :end 106 :contents-begin 1 :contents-end 104 :post-blank 2 :post-affiliated 1 :parent nil)
                   (keyword (:key "TITLE" :value "TITLE_THIS"
                                  :begin 1 :end 21 :post-blank 0 :post-affiliated 1 :parent #0))
@@ -104,5 +107,12 @@
       1) https://github.com/ndwarshuis/org-ml
 
    3) [ ] 이제 이 list에서 {:key == "TAGS[]"} 얻기는?
+      #+begin_src emacs-lisp
+        (cl-remove-if-not (lambda (node)
+                            (and (eq 'keyword (car node))
+                                 (equal "TAGS[]" (plist-get (cadr node) :key))))
+                          (->> (org-ml-parse-section-at -1)
+                               (org-ml-get-children)))
+      #+end_src
 
    4) [ ] 그리고 {:key == ...} 수정하기는?
