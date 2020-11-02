@@ -2,7 +2,8 @@
 #+DATE: <2020-11-02 Mon>
 
 
-* 의도
+* DONE 의도
+  CLOSED: [2020-11-02 Mon 14:28]
   1) org 링크를 만드는 것이 더 쉬웠으면 좋겠다고 생각했다.
      1) org link만으로 만족하고 쓸만한 위키이니까.
   2) 문서들을 조직하고 정리하는 방법이 더 느슨했으면 했다.
@@ -54,7 +55,8 @@
   2) fuzzy matching으로 추가, 삭제.
 
 
-* TODO sqlite3 api? dbm?
+* DONE sqlite3 api? dbm?
+  CLOSED: [2020-11-02 Mon 14:28]
   1) https://github.com/pekingduck/emacs-sqlite3-api
      1) org-roam에서도 이걸 썼었던 것 같다.
      2) c api을 wrapper을 빌드해서 설치하는 듯.
@@ -75,3 +77,32 @@
      2) 링크를 열기 -- 마찬가지.
      3) Git등으로 간단히 sync와 resolving-conflict이 가능한 것에
         비해서 더 복잡해질 동시성 모델
+
+* TODO ~#+TAGS[]:~ 을 org-ql으로 읽기? 쓰기? [0/3]                 :question:
+  1) [ ] 태그 목록을 읽을 수 있어야 하고.
+  2) [ ] (태그 목록이 없다면) org파일에 추가 할 수 있어야 하고.
+  3) [ ] (있다면) 그 목록에 태그를 추가/삭제 할 수 있어야.
+
+** TODO org-ql? org-ml! [0/2]
+   1) org-ql으로 얻을 수 있을 것 같았는데,
+      1) 얻기는 얻으나, 별로.
+   2) 그래서 org-ml으로 다시 시도.
+      #+begin_src emacs-lisp
+        (org-ml-parse-section-at -1)
+
+         (section (:begin 1 :end 106 :contents-begin 1 :contents-end 104 :post-blank 2 :post-affiliated 1 :parent nil)
+                  (keyword (:key "TITLE" :value "TITLE_THIS"
+                                 :begin 1 :end 21 :post-blank 0 :post-affiliated 1 :parent #0))
+                  (keyword (:key "DATE" :value "2020-10-20 00:00:00+09:00"
+                                 :begin 21 :end 55 :post-blank 0 :post-affiliated 21 :parent #0))
+                  (keyword (:key "CATEGORIES[]" :value "a-category"
+                                 :begin 55 :end 82 :post-blank 0 :post-affiliated 55 :parent #0))
+                  (keyword (:key "TAGS[]" :value "tag_a tag_b"
+                                 :begin 82 :end 104 :post-blank 0 :post-affiliated 82 :parent #0)))
+      #+end_src
+
+      1) https://github.com/ndwarshuis/org-ml
+
+   3) [ ] 이제 이 list에서 {:key == "TAGS[]"} 얻기는?
+
+   4) [ ] 그리고 {:key == ...} 수정하기는?

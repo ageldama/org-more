@@ -1,0 +1,57 @@
+#+TITLE: TITLE_THIS
+#+date: 2020-10-20 00:00:00+09:00
+#+categories[]: a-category
+#+tags[]: tag_a tag_b
+
+
+* SEC_A
+  AAAA
+
+
+** SEC_A_A     
+   A_A A_A A_A
+
+
+* SEC_B
+  BBBB
+
+  1) one
+  2) two
+  3) three
+
+
+
+(print (org-element-parse-buffer))
+
+(org-keywords)
+
+
+(org-element-keyword-parser)
+
+
+(org-entry-properties)
+
+
+(org-ml-get-affiliated-keyword :TITLE
+(org-ml-parse-section-at -1))
+
+(->> (org-ml-parse-this-element)
+     (org-ml-get-affiliated-keyword :name))
+
+
+
+(org-ml-to-string (org-ml-parse-section-at -1))
+
+
+;;; TODO https://github.com/ndwarshuis/org-ml
+
+(org-ml-get-affiliated-keyword :TITLE
+  (org-ml-parse-section-at -1))
+;; (arg-type-error "Invalid affiliated keyword requested: :title")
+
+
+(section 
+(:begin 1 :end 106 :contents-begin 1 :contents-end 104 :post-blank 2
+:post-affiliated 1 ...) 
+(keyword (:key "TITLE" :value "TITLE_THIS" :begin 1 :end 21 :post-blank 0 :post-affiliated 1 ...)) (keyword (:key "DATE" :value "2020-10-20 00:00:00+09:00" :begin 21 :end 55 :post-blank 0 :post-affiliated 21 ...)) (keyword (:key "CATEGORIES[]" :value "a-category" :begin 55 :end 82 :post-blank 0 :post-affiliated 55 ...)) (keyword (:key "TAGS[]" :value "tag_a tag_b" :begin 82 :end 104 :post-blank 0 :post-affiliated 82 ...)))
+
