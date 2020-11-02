@@ -13,6 +13,8 @@
 
 
 * SEC_B
+  #+FOO: BAR
+
   BBBB
 
   1) one
@@ -22,7 +24,6 @@
 
 
 (org-ml-set-children (org-ml-build-keyword "FILETAGS" "FOOBAR") 
-                         (->> (org-ml-parse-section-at -1)
                               (org-ml-get-children)))
 
 
