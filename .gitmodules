@@ -1,0 +1,3 @@
+[submodule "emacs-sqlite3-api"]
+	path = emacs-sqlite3-api
+	url = https://github.com/pekingduck/emacs-sqlite3-api
