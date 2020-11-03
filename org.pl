@@ -113,11 +113,19 @@ package ::main;
 
 use Data::Dumper;
 
-# TODO ARGV -> find_contains_all_in
+{
+    die 'pls specify a mode in one of [find]' if scalar @ARGV < 1;
 
-OrgPl::Find::find_contains_all_in(
-    '/home/jhyun/P/ageldama-github-io-hugo',
-    ['ping', "rxjs"]);
+    my $mode = $ARGV[0];
+
+    if ($mode eq 'find') {
+        my $dir = $ARGV[1] or die("pls specify a dir!");
+        my @tags = @ARGV[2..$#ARGV];                    
+        OrgPl::Find::find_contains_all_in($dir, \@tags);
+    } else {
+        die "Unknown mode: $mode";
+    }
+}
 
 # print Dumper(OrgPl::Tags::list_tags('/home/jhyun/P/simple-org-wiki/samples/no-sec-kws.org')), "\n";
 
