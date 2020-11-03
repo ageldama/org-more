@@ -3,7 +3,7 @@ use warnings;
 
 
 
-package OrgPl::Utils;
+package Org::More::Utils;
 
 sub trim($)
 {
@@ -17,7 +17,7 @@ sub trim($)
 
 
 
-package OrgPl::Tags;
+package Org::More::Tags;
 
 use Exporter;
 our @EXPORT_OK = qw(list_tags);
@@ -32,7 +32,7 @@ sub list_tags {
    
     while(my $line = <$fh>) {
         if ($line =~ m/^\#\+tags(\[\])?\:(.+)$/i) {
-            my $matches = OrgPl::Utils::trim($2);
+            my $matches = Org::More::Utils::trim($2);
             my @tags = split /\s/, $matches;
             push @collection, @tags;
             # print Dumper(@tags), "\n";
@@ -53,7 +53,7 @@ sub get_title {
    
     while(my $line = <$fh>) {
         if ($line =~ m/^\#\+title\:(.+)$/i) {
-            $result = OrgPl::Utils::trim($1);
+            $result = Org::More::Utils::trim($1);
             last;
         }
     }
@@ -82,7 +82,7 @@ sub has_all {
 
 
 
-package OrgPl::Find;
+package Org::More::Find;
 
 use Exporter;
 our @EXPORT_OK = qw(find_contains_all_in);
@@ -98,9 +98,9 @@ sub find_contains_all_in {
 
     find(sub{
         my $file = $File::Find::name;
-        my @tags = OrgPl::Tags::list_tags($file);
-        if (OrgPl::Tags::has_all(\@tags, $tags_arr_ref)){
-            my $title = OrgPl::Tags::get_title($file);            
+        my @tags = Org::More::Tags::list_tags($file);
+        if (Org::More::Tags::has_all(\@tags, $tags_arr_ref)){
+            my $title = Org::More::Tags::get_title($file);            
             print "[[file:$file]] :: $title\n";
         }        
          }, $dir);
@@ -121,7 +121,7 @@ use Data::Dumper;
     if ($mode eq 'find') {
         my $dir = $ARGV[1] or die("pls specify a dir!");
         my @tags = @ARGV[2..$#ARGV];                    
-        OrgPl::Find::find_contains_all_in($dir, \@tags);
+        Org::More::Find::find_contains_all_in($dir, \@tags);
     } else {
         die "Unknown mode: $mode";
     }
