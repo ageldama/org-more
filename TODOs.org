@@ -271,7 +271,8 @@
 
 
 
-* TODO Elisp + Org.pl --> <2020-11-04 Wed> 검색 만들기 [2/2]
+* DONE Elisp + Org.pl --> <2020-11-04 Wed> 검색 만들기 [2/2]
+  CLOSED: [2020-11-04 Wed 03:25]
   1) Perl script 찾을 경로? 
     #+begin_src emacs-lisp
     ;;; TODO Function: symbol-file symbol &optional type
@@ -291,4 +292,6 @@
      #+begin_src emacs-lisp
        (message "Dir: %s" (read-directory-name "Dir? "))
      #+end_src
+
+  4) 완성 [[file:org-more.el]]
 
