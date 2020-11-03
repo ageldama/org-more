@@ -207,10 +207,10 @@
 
 * TODO Perl / Tags CLI [0/4]
   1) <2020-11-03 Tue>
-  2) [ ] ~list $FILE~
-  3) [ ] ~has_all_of $FILE $TAG_A $TAG_B ...~
-  4) [ ] ~add $FILE $TAG_A $TAG_B ...~
-  5) [ ] ~del $FILE $TAG_A $TAG_B ...~
+  2) [ ] ~add $FILE $TAG_A $TAG_B ...~
+  3) [ ] ~del $FILE $TAG_A $TAG_B ...~
+  4) [ ] ~list $FILE~
+  5) [ ] ~find_has_all $DIR $TAG_A $TAG_B ...~
   6) temp-file, move-file etc.
      #+begin_src cperl
        use File::Temp qw/tempfile/;
@@ -228,5 +228,16 @@
        # ----------------------------------------------------------------------
 
        unlink($FILENAME) or die "Can't delete $FILENAME: $!\n";
+
+       # ----------------------------------------------------------------------
+
+       use File::Find;
+
+       find(\&print_name_if_dir, ".");
+
+       sub print_name_if_dir
+       {
+           print if -d;
+       }
      #+end_src
     
