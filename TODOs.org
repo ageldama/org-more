@@ -196,4 +196,6 @@
    CLOSED: [2020-11-03 Tue 15:22]
    - [[file:exclude-tags.pl]]
 
-** TODO (3) 마지막 ~#+...:~ 라인을 찾아 원하는 tags을 삽입하기
+** TODO (3) 마지막 ~#+...:~ 라인을 찾아 원하는 tags을 삽입하기 [1/2]
+   1) [X] 파일에서 마지막 kw행 찾기: [[file:last-seckw-line.pl]]
+   2) [ ] 특정 행번호에 tags 삽입하기: 
