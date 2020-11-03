@@ -24,12 +24,13 @@ use Exporter;
 our @EXPORT_OK = qw(list_tags);
 
 use Data::Dumper;
+use Carp;
 
 sub list_tags {
     my $filename = shift;
     my @collection = ();
     
-    open(my $fh, $filename) or die "Could not open $filename: $!";
+    open(my $fh, $filename) or carp "Could not open $filename: $!";
    
     while(my $line = <$fh>) {
         if ($line =~ m/^\#\+tags(\[\])?\:(.+)$/i) {
@@ -98,6 +99,13 @@ sub find_contains_all_in {
     #print @$tags_arr_ref, "\n";
 
     find(sub{
+        # TODO skip `.git/**`?
+        # only `.org` files
+        if (!($_ =~ m/\.org$/)) {
+            return;
+        }
+        #print "[$File::Find::name]\n";                        
+        #
         my $file = $File::Find::name;
         my @tags = Org::More::Tags::list_tags($file);
         if (Org::More::Tags::has_all(\@tags, $tags_arr_ref)){
