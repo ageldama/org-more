@@ -120,7 +120,8 @@
 
 
 
-* TODO Perl
+* DONE Perl
+  CLOSED: [2020-11-03 Tue 15:15]
   #+begin_src perl
     # find in file
 
@@ -172,3 +173,27 @@
           }
         }
   #+end_src
+
+
+
+* TODO ~tags[]~ 수정하기 방법 [2/3]
+  1) 우선 이미 존재 하는 tags을 모은다.
+  2) 파일에서 ~#+tags[]: ...~ 부분을 생략하고 복사한다. -> tmp_a
+     
+  3) tmp_a에서 마지막 ~#+..~ 라인을 찾는다. -> line_last_sec_kw
+     1) --- 하나도 없다면, 0라인부터.
+        
+  4) line_last_sec_kw 다음에 새로운 ~#+tags[]: ...~ 을 생성하여
+     삽입한다. -> (tmp_a -> tmp_b)
+  5) tmp_b을 원래의 파일으로 교체한다.
+  6) tmp_a, tmp_b을 정리한다.
+
+** DONE (1) 파일에서 tags 모으기
+   CLOSED: [2020-11-03 Tue 15:18]
+   - [[file:search-tags.pl]]
+
+** DONE (2) tags 제외하고 복사하기
+   CLOSED: [2020-11-03 Tue 15:22]
+   - [[file:exclude-tags.pl]]
+
+** TODO (3) 마지막 ~#+...:~ 라인을 찾아 원하는 tags을 삽입하기
