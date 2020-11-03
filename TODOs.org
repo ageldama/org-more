@@ -55,6 +55,18 @@
   2) fuzzy matching으로 추가, 삭제.
 
 
+
+* <2020-11-04 Wed> overkill 없이 -- (A) 태그에 속한 파일만 검색하기 
+  1) 태그 목록을 나열하거나, 태그를 추가/삭제 하는 것들은 essential한
+     작업들이 아니다.
+     - 추가/삭제는 직접 손으로 열어서 편집해도 되고,
+     - 태그 목록을 전부 나열하는 것은 당장은 필요 없지 않을까.
+
+* TODO "태그에 속한 파일 검색"의 결과 보기?
+  1) <2020-11-04 Wed> 그냥 perl script을 실행한 것을 org-mode으로
+     보여주면 되지 않을까? 
+     - 링크도 바로 되고.
+
 * DONE sqlite3 api? dbm?
   CLOSED: [2020-11-02 Mon 14:28]
   1) https://github.com/pekingduck/emacs-sqlite3-api
@@ -78,7 +90,8 @@
      3) Git등으로 간단히 sync와 resolving-conflict이 가능한 것에
         비해서 더 복잡해질 동시성 모델
 
-* TODO ~#+TAGS[]:~ 을 org-ql으로 읽기? 쓰기? [0/3]                 :question:
+* DONE ~#+TAGS[]:~ 을 org-ql으로 읽기? 쓰기? [0/3]                 :question:
+  CLOSED: [2020-11-04 Wed 01:15]
   1) [ ] 태그 목록을 읽을 수 있어야 하고.
   2) [ ] (태그 목록이 없다면) org파일에 추가 할 수 있어야 하고.
   3) [ ] (있다면) 그 목록에 태그를 추가/삭제 할 수 있어야.
