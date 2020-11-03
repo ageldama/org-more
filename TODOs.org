@@ -33,12 +33,14 @@
       어려워서.
 
 
-* TODO (AA) 링크 만들기, 링크 할 파일을 검색하기                    :feature:
+* DONE (AA) 링크 만들기, 링크 할 파일을 검색하기                    :feature:
+  CLOSED: [2020-11-04 Wed 02:52]
   1) 하위디렉토리 검색.
      1) projectile, fuzzy matching.
   2) 링크의 이름?
      1) 선택한 transient 영역을 사용.
      2) transient 없으면, ~#+TITLE:~ 이나 파일이름으로.
+  3) 이거 딱히 당장 없어도 그냥 C-c C-l으로 살만할 것 같다.
 
 * TODO (A) 특정 tag, tag-set에 대해 속하는 문서 검색 리스팅하기     :feature:
   1) ex: ~#+TAGS[]: a b c~
@@ -269,7 +271,7 @@
 
 
 
-* TODO Elisp + Org.pl --> <2020-11-04 Wed> 검색 만들기
+* TODO Elisp + Org.pl --> <2020-11-04 Wed> 검색 만들기 [2/2]
   1) Perl script 찾을 경로? 
     #+begin_src emacs-lisp
     ;;; TODO Function: symbol-file symbol &optional type
@@ -279,4 +281,14 @@
     #+end_src
 
      1) 아니면, 그냥 PATH에서 찾자.
+
+  2) [X] elisp: prompt tags
+     #+begin_src emacs-lisp
+       (message "==> [%s]" (read-string "Enter tags: "))
+     #+end_src
+
+  3) [X] elisp: base-dir 경로 선택하기
+     #+begin_src emacs-lisp
+       (message "Dir: %s" (read-directory-name "Dir? "))
+     #+end_src
 

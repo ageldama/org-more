@@ -8,5 +8,5 @@
     ;;
     (read-only-mode)
     (org-show-all))
-  (switch-to-buffer buf))
+  (switch-to-buffer-other-window buf))
   
