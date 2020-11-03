@@ -1,11 +1,13 @@
+(defvar org-more-dir (file-name-directory load-file-name))
+
 (defun org-more-list-of-tags* (base-dir tags)
   (cl-flet ((mkdttms () (format-time-string "%Y-%m-%dT%T%z")))
     (let* ((dttm (mkdttms))
            (buf-name (format "*** Org-More tag search: %s // %s @@ %s ***"
                              tags base-dir dttm))
            (buf (generate-new-buffer buf-name))
-           (cmd (format "org-more.pl find %s %s"
-                        base-dir tags))
+           (cmd (format "perl %s/org-more.pl find %s %s"
+                        org-more-dir base-dir tags))
            (exit-code nil))
       (switch-to-buffer-other-window buf)    
       (with-current-buffer buf
