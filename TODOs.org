@@ -116,3 +116,59 @@
       #+end_src
 
    4) [ ] 그리고 {:key == ...} 수정하기는?
+
+
+
+
+* TODO Perl
+  #+begin_src perl
+    # find in file
+
+
+    perl -ne 'print $1 if m/^\#\+tags\[\]\:(.+)$/i'
+
+        # perl -ne 'print if m/whatever/' file
+
+        if ( !open(LOGFILE, "<myfile.log") ) 
+        {
+        print "ERROR: failed to open myfile.log\n";}
+        else {   
+        while (<LOGFILE>){
+        if ($_ =~ /pattern/)
+            {    print "found\n";
+                 break;
+             }
+        }   
+        close (LOGFILE);
+        }
+
+        # change file inplace .. Open the file in update mode ("+<"), read the
+        # whole file into an array of lines, change the array, then rewrite
+        # the file and truncate it to its current seek pointer.
+
+        open(FH, "+< FILE")                 or die "Opening: $!";
+        @ARRAY = <FH>;
+        # change ARRAY here
+        seek(FH,0,0)                        or die "Seeking: $!";
+        print FH @ARRAY                     or die "Printing: $!";
+        truncate(FH,tell(FH))               or die "Truncating: $!";
+        close(FH)                           or die "Closing: $!";
+
+        # 2nd
+        use strict;
+        use warnings;
+
+        our $^I = '.bak';
+
+        while ( my $file = glob '*.csv' ) {
+
+          print "Processing $file\n";
+
+          our @ARGV = ($file);
+
+          while ( <ARGV> ) {
+             tr/a-z/A-Z/;
+             print;
+          }
+        }
+  #+end_src

@@ -1,7 +1,8 @@
 #+TITLE: TITLE_THIS
 #+date: 2020-10-20 00:00:00+09:00
 #+categories[]: a-category
-#+tags[]: tag_a tag_b
+#+foobar: spameggs
+
 
 
 * SEC_A

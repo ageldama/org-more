@@ -2,6 +2,8 @@
 #+date: 2020-10-20 00:00:00+09:00
 #+categories[]: a-category
 #+tags[]: tag_a tag_b
+#+foobar: spameggs
+#+TAGS[]: tag_d tag_c
 
 
 * SEC_A
