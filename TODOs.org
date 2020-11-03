@@ -33,7 +33,7 @@
       어려워서.
 
 
-* TODO 링크 만들기, 링크 할 파일을 검색하기                         :feature:
+* TODO (AA) 링크 만들기, 링크 할 파일을 검색하기                    :feature:
   1) 하위디렉토리 검색.
      1) projectile, fuzzy matching.
   2) 링크의 이름?
@@ -222,12 +222,14 @@
         이용하는 방법도 있음.
      2) 이 방법은 orgmode 없어도 동작하겠지.
 
-* TODO Perl / Tags CLI [0/4]
+* TODO Perl / Tags CLI [1/4]
   1) <2020-11-03 Tue>
   2) [ ] ~add $FILE $TAG_A $TAG_B ...~
   3) [ ] ~del $FILE $TAG_A $TAG_B ...~
   4) [ ] ~list $FILE~
-  5) [ ] ~find_has_all $DIR $TAG_A $TAG_B ...~
+  5) [X] ~find_has_all $DIR $TAG_A $TAG_B ...~
+     - <2020-11-04 Wed> 일단 이것만 완성되어도 쓸만해지니까.
+       - 완성: [[file:org.pl]]
   6) temp-file, move-file etc.
      #+begin_src cperl
        use File::Temp qw/tempfile/;
@@ -265,4 +267,16 @@
      - 추가/삭제는 직접 손으로 열어서 편집해도 되고,
      - 태그 목록을 전부 나열하는 것은 당장은 필요 없지 않을까.
 
+
+
+* TODO Elisp + Org.pl --> <2020-11-04 Wed> 검색 만들기
+  1) Perl script 찾을 경로? 
+    #+begin_src emacs-lisp
+    ;;; TODO Function: symbol-file symbol &optional type
+
+    (defvar foo-directory (file-name-directory load-file-name)
+      "*Directory for data files belonging to package \`foo'.")
+    #+end_src
+
+     1) 아니면, 그냥 PATH에서 찾자.
 
