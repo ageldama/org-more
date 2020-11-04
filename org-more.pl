@@ -136,11 +136,3 @@ use Data::Dumper;
     }
 }
 
-# print Dumper(OrgPl::Tags::list_tags('/home/jhyun/P/simple-org-wiki/samples/no-sec-kws.org')), "\n";
-
-=begin
-{
-    my @tags = OrgPl::Tags::list_tags('/home/jhyun/P/simple-org-wiki/samples/multiple-tags.org');
-    print OrgPl::Tags::has_all(\@tags, ['tag_a', 'tag_b']);
-}
-=cut
