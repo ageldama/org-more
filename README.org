@@ -6,7 +6,9 @@
      1) List every ~.org~ files under a directory have certain
         tag(s).
      2) These directory and tag(s) will be asked.
-  3) License: MIT.
+  3) Result will be shown as an org-mode buffer with links to matching
+     files and its titles.
+  4) License: MIT.
 
 
 * What are _tags_ ?
