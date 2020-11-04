@@ -20,7 +20,7 @@
   #+end_src
 
   The above has tags: a, b, c, x, y and z. These syntaxes are called
-  [[https://orgmode.org/org.html#Per_002dfile-keywords]["Per file keywords]]".
+  "[[https://orgmode.org/org.html#Per_002dfile-keywords][Per file keywords]]".
 
   ~org-more.el~ does searching case-insensitively and support both
   ~#+tags[]:~ and ~#+tags:~. Also it gathers every tag lines of a
