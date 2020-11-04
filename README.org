@@ -1,3 +1,5 @@
+ search .org files have certain tags (~#+tags:~ or ~#+tags[]:~)
+
 * org-more.el
   1) ~(load "org-more.el")~
   2) ~M-x org-more-list-of-tags RET~
@@ -7,3 +9,21 @@
   3) License: MIT.
 
 
+* What are _tags_ ?
+  Let say we have an org file looks like this:
+
+  #+begin_src org
+    ,#+TAGS[]: a b c
+    ,#+tags: x y z
+
+    blah blah...
+  #+end_src
+
+  The above has tags: a, b, c, x, y and z. These syntaxes are called
+  [[https://orgmode.org/org.html#Per_002dfile-keywords]["Per file keywords]]".
+
+  ~org-more.el~ does searching case-insensitively and support both
+  ~#+tags[]:~ and ~#+tags:~. Also it gathers every tag lines of a
+  file.
+
+  
